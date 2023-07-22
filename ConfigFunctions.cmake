@@ -28,7 +28,7 @@ function(find_libraries OUT_VAR)
             set(${LIBRARY}_FOUND TRUE)
         else()
             # checking if pkg-config can find it
-            find_package(PkgConfig)
+            find_package(PkgConfig QUIET REQUIRED)
             pkg_check_modules(LIB_${LIBRARY} QUIET ${LIBRARY})
             if(DEFINED LIB_${LIBRARY}_LIBRARIES AND NOT LIB_${LIBRARY}_LIBRARIES STREQUAL "")
                 list(APPEND LIBRARIES_LIST ${LIB_${LIBRARY}_LIBRARIES})
